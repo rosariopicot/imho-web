@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #EEEBE4;
+  --dark: #0F0F0F;
+  --terracotta: #C4673A;
+  --lavender: #B8C3D9;
+  --lime: #C8F04D;
+  --beige: #F2DDD0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--dark);
+}
+
+/* Highlight de selecciÃ³n con verde lima */
+::selection {
+  background-color: var(--lime);
+  color: var(--dark);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dark);
+  border-radius: 99px;
+}
