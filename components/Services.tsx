@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 const services = [
   {
     number: "01",
-    emoji: "ð¯",
-    title: "GestiÃ³n estratÃ©gica de redes sociales",
+    emoji: "🎯",
+    title: "Gestión estratégica de redes sociales",
     description:
-      "Manejamos tu presencia digital de forma integral. Desde la planificaciÃ³n mensual de contenido hasta la publicaciÃ³n en los mejores horarios para tu audiencia.",
+      "Manejamos tu presencia digital de forma integral. Desde la planificación mensual de contenido hasta la publicación en los mejores horarios para tu audiencia.",
   },
   {
     number: "02",
-    emoji: "ð¬",
-    title: "CreaciÃ³n y ediciÃ³n de contenido",
+    emoji: "🎬",
+    title: "Creación y edición de contenido",
     description:
       "Producimos y editamos reels, videos cortos y contenido audiovisual que comunica la identidad de tu marca y conecta con tu comunidad.",
   },
   {
     number: "03",
-    emoji: "âï¸",
-    title: "DiseÃ±o de piezas grÃ¡ficas",
+    emoji: "✏️",
+    title: "Diseño de piezas gráficas",
     description:
-      "DiseÃ±amos stories, posts, carruseles y todo tipo de piezas grÃ¡ficas que mantienen la coherencia visual y el estilo de tu marca.",
+      "Diseñamos stories, posts, carruseles y todo tipo de piezas gráficas que mantienen la coherencia visual y el estilo de tu marca.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function Services() {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header de secciÃ³n */}
+        {/* Header de sección */}
         <div className="flex items-center gap-4 mb-16">
           <motion.span
             initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
@@ -70,7 +70,7 @@ export default function Services() {
             transition={{ duration: 0.5 }}
             className="text-lime text-4xl"
           >
-            â³
+            ✳
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
@@ -98,7 +98,7 @@ export default function Services() {
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
               className="bg-beige rounded-3xl p-8 flex flex-col gap-6 cursor-default"
             >
-              {/* Emoji + nÃºmero */}
+              {/* Emoji + número */}
               <div className="flex items-start justify-between">
                 <span className="text-4xl">{service.emoji}</span>
                 <span className="font-syne font-black text-7xl text-dark/[0.07] leading-none select-none">

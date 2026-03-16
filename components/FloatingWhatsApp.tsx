@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-// â ï¸ REEMPLAZAR con el nÃºmero de WhatsApp real (sin + ni espacios)
+// ⚠️ REEMPLAZAR con el número de WhatsApp real (sin + ni espacios)
 const WHATSAPP_NUMBER = "5491100000000";
 const WHATSAPP_MESSAGE =
-  "Hola! Vi su web y me gustarÃ­a hablar sobre un proyecto para mi marca.";
+  "Hola! Vi su web y me gustaría hablar sobre un proyecto para mi marca.";
 
 export default function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
-  // Aparece 3 segundos despuÃ©s de cargar la pÃ¡gina
+  // Aparece 3 segundos después de cargar la página
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
@@ -43,12 +43,12 @@ export default function FloatingWhatsApp() {
                 transition={{ duration: 0.2 }}
                 className="bg-dark text-cream text-sm px-4 py-2.5 rounded-2xl whitespace-nowrap shadow-lg"
               >
-                Â¡Hablemos por WhatsApp! ð
+                ¡Hablemos por WhatsApp! 👋
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* BotÃ³n con efecto pulse */}
+          {/* Botón con efecto pulse */}
           <motion.a
             href={whatsappUrl}
             target="_blank"
@@ -69,7 +69,7 @@ export default function FloatingWhatsApp() {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
               className="absolute inset-0 rounded-full bg-[#25D366]"
             />
-            {/* BotÃ³n principal */}
+            {/* Botón principal */}
             <span className="relative w-14 h-14 bg-[#25D366] hover:bg-[#1fb958] transition-colors rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30">
               <MessageCircle size={26} fill="white" color="white" />
             </span>

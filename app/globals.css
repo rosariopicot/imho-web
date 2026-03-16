@@ -24,7 +24,7 @@ body {
   color: var(--dark);
 }
 
-/* Highlight de selecciÃ³n con verde lima */
+/* Highlight de selección con verde lima */
 ::selection {
   background-color: var(--lime);
   color: var(--dark);

@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "IMHO â Agencia Creativa de Marketing Digital",
+  title: "IMHO — Agencia Creativa de Marketing Digital",
   description:
-    "Somos IMHO. Agencia creativa especializada en gestiÃ³n de redes sociales, creaciÃ³n de contenido, ediciÃ³n de reels y estrategia digital.",
+    "Somos IMHO. Agencia creativa especializada en gestión de redes sociales, creación de contenido, edición de reels y estrategia digital.",
   keywords: [
     "agencia creativa",
     "marketing digital",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     "IMHO",
   ],
   openGraph: {
-    title: "IMHO â Agencia Creativa de Marketing Digital",
+    title: "IMHO — Agencia Creativa de Marketing Digital",
     description:
-      "Creamos contenido que conecta marcas con personas. GestiÃ³n de redes, reels y estrategia digital.",
+      "Creamos contenido que conecta marcas con personas. Gestión de redes, reels y estrategia digital.",
     type: "website",
   },
 };

@@ -62,9 +62,9 @@ export default function Footer() {
         {/* Divider + copyright */}
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-white/25 text-xs">
-            Â© {new Date().getFullYear()} IMHO. Todos los derechos reservados.
+            © {new Date().getFullYear()} IMHO. Todos los derechos reservados.
           </p>
-          <p className="text-white/15 text-xs">Hecho con â¡ en Buenos Aires</p>
+          <p className="text-white/15 text-xs">Hecho con ♡ en Buenos Aires</p>
         </div>
       </div>
     </footer>

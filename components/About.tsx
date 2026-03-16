@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-// Componente que anima un nÃºmero del 0 al valor final cuando entra en viewport
+// Componente que anima un número del 0 al valor final cuando entra en viewport
 function AnimatedNumber({
   target,
   suffix = "",
@@ -54,11 +54,11 @@ const stats = [
     number: 100,
     suffix: "%",
     label: "Contenido original",
-    description: "Todo lo que creamos es Ãºnico para tu marca",
+    description: "Todo lo que creamos es único para tu marca",
   },
   {
     number: 2,
-    suffix: " aÃ±os",
+    suffix: " años",
     label: "Creando contenido",
     description: "De experiencia en el mundo del marketing digital",
   },
@@ -93,7 +93,7 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* ââ Columna izquierda: Texto ââ */}
+          {/* ── Columna izquierda: Texto ── */}
           <div className="space-y-8">
             <div className="flex items-center gap-3">
               <motion.span
@@ -103,7 +103,7 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="text-lime text-4xl"
               >
-                â³
+                ✳
               </motion.span>
               <motion.p
                 initial={{ opacity: 0, x: -15 }}
@@ -137,7 +137,7 @@ export default function About() {
             >
               Somos una agencia creativa especializada en marketing digital.
               Creemos que el buen contenido no solo se ve, se siente. Trabajamos
-              junto a las marcas para construir una presencia digital autÃ©ntica
+              junto a las marcas para construir una presencia digital auténtica
               que conecte con las personas correctas.
             </motion.p>
 
@@ -148,13 +148,13 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-white/40 leading-relaxed"
             >
-              Cada pieza que creamos tiene un propÃ³sito. Desde el primer reel
-              hasta la Ãºltima story, todo estÃ¡ pensado para hacer crecer tu
+              Cada pieza que creamos tiene un propósito. Desde el primer reel
+              hasta la última story, todo está pensado para hacer crecer tu
               comunidad y tu negocio.
             </motion.p>
           </div>
 
-          {/* ââ Columna derecha: Stats ââ */}
+          {/* ── Columna derecha: Stats ── */}
           <div className="space-y-4">
             {stats.map((stat, index) => (
               <motion.div

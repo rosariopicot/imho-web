@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Instagram, Mail } from "lucide-react";
 
-// â ï¸ REEMPLAZAR con el nÃºmero de WhatsApp real de IMHO (sin + ni espacios)
+// ⚠️ REEMPLAZAR con el número de WhatsApp real de IMHO (sin + ni espacios)
 const WHATSAPP_NUMBER = "5491100000000";
 const WHATSAPP_MESSAGE =
-  "Hola! Vi su web y me gustarÃ­a hablar sobre un proyecto para mi marca.";
+  "Hola! Vi su web y me gustaría hablar sobre un proyecto para mi marca.";
 const INSTAGRAM_URL = "https://instagram.com/imho.creators";
 const EMAIL = "imhocreators@gmail.com";
 
@@ -52,19 +52,19 @@ export default function Contact() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="inline-block text-lime text-5xl"
           >
-            â³
+            ✳
           </motion.span>
 
           {/* Headline */}
           <h2 className="font-syne font-black text-5xl lg:text-7xl text-dark leading-[0.92] tracking-tight">
-            Â¿TenÃ©s un
+            ¿Tenés un
             <br />
             <span className="text-terracotta italic">proyecto</span>
             <br />
             en mente?
           </h2>
 
-          {/* SubtÃ­tulo */}
+          {/* Subtítulo */}
           <p className="text-dark/55 text-lg leading-relaxed max-w-md mx-auto">
             Contanos de tu marca y te armamos una propuesta personalizada, sin
             compromiso.

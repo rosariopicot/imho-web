@@ -17,7 +17,7 @@ const brands = [
   },
   {
     name: "HILO",
-    service: "DiseÃ±o de Piezas GrÃ¡ficas",
+    service: "Diseño de Piezas Gráficas",
     bg: "#F2DDD0",
     text: "#0F0F0F",
     span: "col-span-1",
@@ -28,7 +28,7 @@ const brands = [
   },
   {
     name: "UNUM",
-    service: "CreaciÃ³n de Contenido",
+    service: "Creación de Contenido",
     bg: "#C8F04D",
     text: "#0F0F0F",
     span: "col-span-1",
@@ -51,7 +51,7 @@ const brands = [
   },
   {
     name: "UNIQUEGETAWAY",
-    service: "Reels + EdiciÃ³n de Contenido",
+    service: "Reels + Edición de Contenido",
     bg: "#0F0F0F",
     text: "#FFFFFF",
     span: "col-span-2",
@@ -99,18 +99,18 @@ export default function Portfolio() {
             transition={{ duration: 0.6 }}
             className="text-lime text-5xl hidden md:block"
           >
-            â³
+            ✳
           </motion.span>
         </div>
 
         {/*
           Grid layout (3 columnas):
-          Fila 1â2: [DOU â 2 cols, 2 rows] [HILO â 1 col]
-                    [DOU â continÃºa]        [UNUM â 1 col]
-          Fila 3:   [ZANNAS â 1 col]        [UNIQUEGETAWAY â 2 cols]
+          Fila 1–2: [DOU — 2 cols, 2 rows] [HILO — 1 col]
+                    [DOU — continúa]        [UNUM — 1 col]
+          Fila 3:   [ZANNAS — 1 col]        [UNIQUEGETAWAY — 2 cols]
         */}
         <div className="grid grid-cols-3 gap-4 lg:gap-5 auto-rows-auto">
-          {/* DOU â grande (2 cols Ã 2 rows) */}
+          {/* DOU — grande (2 cols × 2 rows) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -195,7 +195,7 @@ export default function Portfolio() {
           >
             <div className="p-6 h-full flex flex-col justify-between" style={{ minHeight: "inherit" }}>
               <span className="absolute top-4 right-4 text-xl" style={{ color: brands[2].text }}>
-                â³
+                ✳
               </span>
               <span
                 className={`font-syne font-black ${brands[2].ghostSize} leading-none opacity-[0.07] select-none`}
@@ -277,8 +277,8 @@ export default function Portfolio() {
           transition={{ delay: 0.6 }}
           className="text-center text-dark/35 text-sm mt-10 flex items-center justify-center gap-2"
         >
-          <span>Pronto mÃ¡s trabajos y casos de Ã©xito</span>
-          <span className="text-lime">â³</span>
+          <span>Pronto más trabajos y casos de éxito</span>
+          <span className="text-lime">✳</span>
         </motion.p>
       </div>
     </section>
