@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Servicios", id: "servicios" },
@@ -41,9 +42,9 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => scrollTo("hero")}
-          className="font-syne font-black text-2xl text-dark tracking-tighter hover:opacity-70 transition-opacity"
+          className="hover:opacity-70 transition-opacity"
         >
-          IMH<span className="italic">O</span>
+          <Logo height={28} color="#0F0F0F" />
         </button>
 
         {/* Desktop Nav */}

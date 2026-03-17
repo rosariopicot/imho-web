@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, Mail } from "lucide-react";
+import { MessageCircle, Instagram, Mail, Sparkles } from "lucide-react";
 
-// ⚠️ REEMPLAZAR con el número de WhatsApp real de IMHO (sin + ni espacios)
-const WHATSAPP_NUMBER = "5491100000000";
+const WHATSAPP_NUMBER = "5491157496804";
 const WHATSAPP_MESSAGE =
   "Hola! Vi su web y me gustaría hablar sobre un proyecto para mi marca.";
 const INSTAGRAM_URL = "https://instagram.com/imho.creators";
@@ -46,13 +45,13 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
           className="space-y-8"
         >
-          {/* Asterisco */}
+          {/* Icono decorativo */}
           <motion.span
             animate={{ rotate: [0, 15, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-block text-lime text-5xl"
+            className="inline-block text-lime"
           >
-            ✳
+            <Sparkles size={44} strokeWidth={1.5} />
           </motion.span>
 
           {/* Headline */}

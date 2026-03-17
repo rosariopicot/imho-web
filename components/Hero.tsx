@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,13 +23,14 @@ const itemVariants = {
   },
 };
 
-// Las 5 marcas del portfolio mostradas como tiles visuales
+// Las 6 marcas del portfolio mostradas como tiles visuales
 const tiles = [
   { name: "DOU", service: "Community", bg: "#B8C3D9", text: "#0F0F0F", col: "col-span-2", row: "row-span-2" },
   { name: "HILO", service: "Diseño", bg: "#F2DDD0", text: "#0F0F0F", col: "col-span-1", row: "row-span-1" },
   { name: "UNUM", service: "Contenido", bg: "#C8F04D", text: "#0F0F0F", col: "col-span-1", row: "row-span-1", star: true },
-  { name: "ZANNAS", service: "Estrategia", bg: "#C4673A", text: "#FFFFFF", col: "col-span-2", row: "row-span-1" },
-  { name: "UNIQUE\nGETAWAY", service: "Reels", bg: "#0F0F0F", text: "#FFFFFF", col: "col-span-1", row: "row-span-1" },
+  { name: "ZANNAS", service: "Estrategia", bg: "#C4673A", text: "#FFFFFF", col: "col-span-1", row: "row-span-1" },
+  { name: "BABY\nSHADOW", service: "Contenido", bg: "#1a1a2e", text: "#FFFFFF", col: "col-span-1", row: "row-span-1" },
+  { name: "UNIQUE\nGET AWAY", service: "Reels", bg: "#0F0F0F", text: "#FFFFFF", col: "col-span-1", row: "row-span-1" },
 ];
 
 export default function Hero() {
@@ -53,14 +54,13 @@ export default function Hero() {
         }}
       />
 
-      {/* Asterisco decorativo rotando */}
+      {/* Icono decorativo rotando */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-        className="absolute top-28 right-[6%] text-lime text-7xl font-bold hidden lg:block pointer-events-none select-none"
-        style={{ lineHeight: 1 }}
+        className="absolute top-28 right-[6%] text-lime hidden lg:block pointer-events-none select-none"
       >
-        ✳
+        <Sparkles size={56} strokeWidth={1.5} />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 w-full">
@@ -130,10 +130,10 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             {/*
-              Layout del grid (3 cols × 3 rows):
-              | DOU  | DOU  | HILO |
-              | DOU  | DOU  | UNUM |
-              | ZAN  | ZAN  | UNIQ |
+              Layout del grid (3 cols × 4 rows):
+              | DOU  | DOU  | HILO   |
+              | DOU  | DOU  | UNUM   |
+              | ZAN  | BABY | UNIQ   |
             */}
             <div className="grid grid-cols-3 grid-rows-3 gap-3 h-[480px]">
               {/* DOU — grande */}
@@ -187,8 +187,8 @@ export default function Hero() {
                 className="rounded-3xl p-5 flex flex-col justify-between cursor-default relative"
                 style={{ backgroundColor: tiles[2].bg }}
               >
-                <span className="absolute top-3 right-4 text-xl opacity-60" style={{ color: tiles[2].text }}>
-                  ✳
+                <span className="absolute top-3 right-4 opacity-60" style={{ color: tiles[2].text }}>
+                  <Sparkles size={20} strokeWidth={1.5} />
                 </span>
                 <span className="font-syne font-black text-3xl opacity-[0.08]" style={{ color: tiles[2].text }}>
                   {tiles[2].name}
@@ -205,48 +205,68 @@ export default function Hero() {
 
               {/* ZANNAS */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.2 }}
-                className="col-span-2 rounded-3xl p-5 flex flex-col justify-between cursor-default"
+                className="rounded-3xl p-5 flex flex-col justify-between cursor-default"
                 style={{ backgroundColor: tiles[3].bg }}
               >
-                <span className="font-syne font-black text-4xl opacity-[0.08]" style={{ color: tiles[3].text }}>
+                <span className="font-syne font-black text-3xl opacity-[0.08]" style={{ color: tiles[3].text }}>
                   {tiles[3].name}
                 </span>
                 <div>
                   <p className="text-[11px] font-medium mb-1 opacity-50" style={{ color: tiles[3].text }}>
                     {tiles[3].service}
                   </p>
-                  <h3 className="font-syne font-black text-xl" style={{ color: tiles[3].text }}>
+                  <h3 className="font-syne font-black text-lg" style={{ color: tiles[3].text }}>
                     {tiles[3].name}
                   </h3>
                 </div>
               </motion.div>
 
-              {/* UNIQUEGETAWAY */}
+              {/* BABYSHADOW */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.2 }}
                 className="rounded-3xl p-5 flex flex-col justify-between cursor-default"
                 style={{ backgroundColor: tiles[4].bg }}
               >
-                <span
-                  className="font-syne font-black text-2xl opacity-[0.08] leading-tight"
-                  style={{ color: tiles[4].text }}
-                >
-                  UG
+                <span className="font-syne font-black text-2xl opacity-[0.08] leading-tight" style={{ color: tiles[4].text }}>
+                  BS
                 </span>
                 <div>
                   <p className="text-[11px] font-medium mb-1 opacity-50" style={{ color: tiles[4].text }}>
                     {tiles[4].service}
                   </p>
+                  <h3 className="font-syne font-black text-sm leading-tight" style={{ color: tiles[4].text }}>
+                    BABY<br />SHADOW
+                  </h3>
+                </div>
+              </motion.div>
+
+              {/* UNIQUE GET AWAY */}
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.2 }}
+                className="rounded-3xl p-5 flex flex-col justify-between cursor-default"
+                style={{ backgroundColor: tiles[5].bg }}
+              >
+                <span
+                  className="font-syne font-black text-2xl opacity-[0.08] leading-tight"
+                  style={{ color: tiles[5].text }}
+                >
+                  UG
+                </span>
+                <div>
+                  <p className="text-[11px] font-medium mb-1 opacity-50" style={{ color: tiles[5].text }}>
+                    {tiles[5].service}
+                  </p>
                   <h3
                     className="font-syne font-black text-sm leading-tight"
-                    style={{ color: tiles[4].text }}
+                    style={{ color: tiles[5].text }}
                   >
                     UNIQUE
                     <br />
-                    GETAWAY
+                    GET AWAY
                   </h3>
                 </div>
               </motion.div>

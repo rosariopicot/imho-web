@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-// ⚠️ REEMPLAZAR con el número de WhatsApp real (sin + ni espacios)
-const WHATSAPP_NUMBER = "5491100000000";
+const WHATSAPP_NUMBER = "5491157496804";
 const WHATSAPP_MESSAGE =
   "Hola! Vi su web y me gustaría hablar sobre un proyecto para mi marca.";
 
@@ -43,7 +42,7 @@ export default function FloatingWhatsApp() {
                 transition={{ duration: 0.2 }}
                 className="bg-dark text-cream text-sm px-4 py-2.5 rounded-2xl whitespace-nowrap shadow-lg"
               >
-                ¡Hablemos por WhatsApp! 👋
+                ¡Hablemos por WhatsApp!
               </motion.div>
             )}
           </AnimatePresence>

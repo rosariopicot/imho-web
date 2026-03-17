@@ -18,7 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         syne: ["var(--font-syne)", "sans-serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
       },
     },
   },

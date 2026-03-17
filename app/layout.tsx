@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Inter } from "next/font/google";
+import { Syne, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const syne = Syne({
@@ -9,9 +9,9 @@ const syne = Syne({
   display: "swap",
 });
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${syne.variable} ${inter.variable} font-inter bg-cream text-dark antialiased`}
+        className={`${syne.variable} ${montserrat.variable} font-montserrat bg-cream text-dark antialiased`}
       >
         {children}
       </body>

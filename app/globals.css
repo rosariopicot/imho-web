@@ -24,6 +24,11 @@ body {
   color: var(--dark);
 }
 
+/* Párrafos justificados */
+p {
+  text-align: justify;
+}
+
 /* Highlight de selección con verde lima */
 ::selection {
   background-color: var(--lime);

@@ -1,6 +1,7 @@
 "use client";
 
 import { Instagram, Mail } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -15,9 +16,9 @@ export default function Footer() {
           {/* Logo */}
           <button
             onClick={() => scrollTo("hero")}
-            className="font-syne font-black text-3xl text-white tracking-tight hover:opacity-70 transition-opacity"
+            className="hover:opacity-70 transition-opacity"
           >
-            IMH<span className="italic">O</span>
+            <Logo height={30} color="#FFFFFF" />
           </button>
 
           {/* Nav links */}
@@ -64,7 +65,7 @@ export default function Footer() {
           <p className="text-white/25 text-xs">
             © {new Date().getFullYear()} IMHO. Todos los derechos reservados.
           </p>
-          <p className="text-white/15 text-xs">Hecho con ♡ en Buenos Aires</p>
+          <p className="text-white/15 text-xs">Hecho con amor en Buenos Aires</p>
         </div>
       </div>
     </footer>

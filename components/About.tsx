@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Sparkles } from "lucide-react";
 
 // Componente que anima un número del 0 al valor final cuando entra en viewport
 function AnimatedNumber({
@@ -101,9 +102,9 @@ export default function About() {
                 whileInView={{ opacity: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="text-lime text-4xl"
+                className="text-lime"
               >
-                ✳
+                <Sparkles size={32} strokeWidth={1.5} />
               </motion.span>
               <motion.p
                 initial={{ opacity: 0, x: -15 }}
