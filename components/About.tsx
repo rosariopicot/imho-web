@@ -69,7 +69,7 @@ export default function About() {
   return (
     <section
       id="nosotros"
-      className="py-24 lg:py-32 bg-gradient-to-br from-[#f0eef8] via-[#fef0e8] to-[#eef6e0] relative overflow-hidden"
+      className="py-24 lg:py-32 bg-gradient-to-br from-[#e0d8f0] via-[#fce0cc] to-[#d8f0c0] relative overflow-hidden"
     >
       {/* Blob terracotta de fondo */}
       <div

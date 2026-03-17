@@ -8,13 +8,13 @@ export default function Logo({
   height?: number;
 }) {
   const fill = variant === "white" ? "#FFFFFF" : "#0F0F0F";
-  const aspect = 428 / 140;
+  const aspect = 460 / 155;
   const width = Math.round(height * aspect);
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="80 338 428 140"
+      viewBox="65 330 460 155"
       width={width}
       height={height}
       className={className}

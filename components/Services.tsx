@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { Target, Film, PenTool } from "lucide-react";
 
+const cardGradients = [
+    "bg-gradient-to-br from-[#dbd5f0] via-[#e8dff5] to-[#f0e8f8]",
+    "bg-gradient-to-br from-[#f5e0d0] via-[#fae8da] to-[#fdf0e6]",
+    "bg-gradient-to-br from-[#ddf0c8] via-[#e8f5d8] to-[#f0f8e4]",
+  ];
+
 const services = [
   {
     icon: <Target size={32} strokeWidth={1.5} />,
@@ -96,7 +102,7 @@ export default function Services() {
                 y: -6,
                 transition: { duration: 0.25 },
               }}
-              className="group bg-dark rounded-3xl p-7 flex flex-col justify-between min-h-[320px] relative overflow-hidden"
+              className={`group ${cardGradients[index]} rounded-3xl p-7 flex flex-col justify-between min-h-[320px] relative overflow-hidden border border-dark/8`}
             >
               {/* Glow sutil en hover */}
               <div
@@ -112,12 +118,12 @@ export default function Services() {
                 <div className="text-terracotta mb-6">{service.icon}</div>
 
                 {/* Título */}
-                <h3 className="font-syne font-bold text-xl text-white mb-3 leading-tight">
+                <h3 className="font-syne font-bold text-xl text-dark mb-3 leading-tight">
                   {service.title}
                 </h3>
 
                 {/* Descripción */}
-                <p className="text-white/45 text-sm leading-relaxed">
+                <p className="text-dark/45 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -127,7 +133,7 @@ export default function Services() {
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] font-medium text-white/30 border border-white/10 rounded-full px-3 py-1"
+                    className="text-[11px] font-medium text-dark/30 border border-dark/15 rounded-full px-3 py-1"
                   >
                     {tag}
                   </span>
