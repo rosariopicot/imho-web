@@ -100,8 +100,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-dark/55 text-lg leading-relaxed max-w-md"
             >
-              Somos IMHO. Gestionamos redes sociales, creamos contenido y
-              producimos reels que hacen crecer a las marcas de verdad.
+              En IMHO ayudamos a marcas a tener una presencia real en redes. No creemos en publicar por publicar. Cada contenido tiene un objetivo: atraer, conectar y crear comunidad.
             </motion.p>
 
             {/* CTAs */}

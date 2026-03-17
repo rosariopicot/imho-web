@@ -69,7 +69,7 @@ export default function About() {
   return (
     <section
       id="nosotros"
-      className="py-24 lg:py-32 bg-dark relative overflow-hidden"
+      className="py-24 lg:py-32 bg-gradient-to-br from-[#f0eef8] via-[#fef0e8] to-[#eef6e0] relative overflow-hidden"
     >
       {/* Blob terracotta de fondo */}
       <div
@@ -111,7 +111,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-white/40 text-xs font-medium uppercase tracking-[0.22em]"
+                className="text-dark/40 text-xs font-medium uppercase tracking-[0.22em]"
               >
                 Sobre nosotros
               </motion.p>
@@ -122,7 +122,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-syne font-black text-5xl lg:text-6xl xl:text-7xl text-white leading-[0.92] tracking-tight"
+              className="font-syne font-black text-5xl lg:text-6xl xl:text-7xl text-dark leading-[0.92] tracking-tight"
             >
               Somos
               <br />
@@ -134,12 +134,9 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/55 text-lg leading-relaxed"
+              className="text-dark/55 text-lg leading-relaxed"
             >
-              Somos una agencia creativa especializada en marketing digital.
-              Creemos que el buen contenido no solo se ve, se siente. Trabajamos
-              junto a las marcas para construir una presencia digital auténtica
-              que conecte con las personas correctas.
+              Somos una agencia creativa especializada en marketing digital. Entendemos tu marca y tus objetivos. Trabajamos para construir una presencia digital auténtica que conecte con las personas correctas.
             </motion.p>
 
             <motion.p
@@ -147,11 +144,9 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white/40 leading-relaxed"
+              className="text-dark/40 leading-relaxed"
             >
-              Cada pieza que creamos tiene un propósito. Desde el primer reel
-              hasta la última story, todo está pensado para hacer crecer tu
-              comunidad y tu negocio.
+              Trabajamos de forma cercana con cada cliente, entendiendo su negocio y adaptando la estrategia a lo que realmente necesita.
             </motion.p>
           </div>
 
@@ -168,16 +163,16 @@ export default function About() {
                   borderColor: "rgba(255,255,255,0.2)",
                   transition: { duration: 0.2 },
                 }}
-                className="border border-white/10 rounded-2xl p-6 flex items-center gap-6 transition-colors"
+                className="border border-dark/15/10 rounded-2xl p-6 flex items-center gap-6 transition-colors"
               >
                 <span className="font-syne font-black text-5xl text-lime leading-none w-36 shrink-0">
                   <AnimatedNumber target={stat.number} suffix={stat.suffix} />
                 </span>
                 <div>
-                  <p className="font-syne font-bold text-white text-lg leading-tight">
+                  <p className="font-syne font-bold text-dark text-lg leading-tight">
                     {stat.label}
                   </p>
-                  <p className="text-white/35 text-sm mt-1">
+                  <p className="text-dark/35 text-sm mt-1">
                     {stat.description}
                   </p>
                 </div>

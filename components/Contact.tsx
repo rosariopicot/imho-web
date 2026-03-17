@@ -65,8 +65,7 @@ export default function Contact() {
 
           {/* Subtítulo */}
           <p className="text-dark/55 text-lg leading-relaxed max-w-md mx-auto">
-            Contanos de tu marca y te armamos una propuesta personalizada, sin
-            compromiso.
+            Contactate con nosotras para consultar tarifas de creación de contenido, edición y/o presupuestar planes de Community Management.
           </p>
 
           {/* CTAs principales */}

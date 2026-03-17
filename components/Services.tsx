@@ -6,24 +6,24 @@ import { Target, Film, PenTool } from "lucide-react";
 const services = [
   {
     icon: <Target size={32} strokeWidth={1.5} />,
-    title: "Gestión de Redes Sociales",
+    title: "Gestión Estratégica de Redes",
     description:
-      "Nos encargamos de todo: estrategia, planificación, publicación y community management. Tus redes, siempre activas y con contenido que conecta.",
-    tags: ["Instagram", "TikTok", "Estrategia", "Calendario"],
+      "Analizamos tu marca y definimos qué comunicar, cómo y para quién. Nos encargamos de planificar y publicar contenido de forma constante, para que tus redes estén siempre activas.",
+    tags: ["Estrategia", "Planificación", "Community", "Redes"],
   },
   {
     icon: <Film size={32} strokeWidth={1.5} />,
-    title: "Producción de Reels",
+    title: "Edición de Videos",
     description:
-      "Creamos reels que capturan la atención desde el primer segundo. Desde la idea hasta la edición final, nos ocupamos de cada detalle.",
-    tags: ["Reels", "Edición", "Guiones", "Tendencias"],
+      "Si ya contás con contenido en crudo, lo adaptamos a formatos que funcionan en redes. Editamos reels con foco en retención, ritmo y dinamismo.",
+    tags: ["Reels", "Edición", "Ritmo", "Retención"],
   },
   {
     icon: <PenTool size={32} strokeWidth={1.5} />,
     title: "Creación de Contenido",
     description:
-      "Diseñamos contenido visual y escrito que refleja la esencia de tu marca. Cada pieza tiene un propósito y una estética cuidada.",
-    tags: ["Diseño", "Copywriting", "Branding", "Fotografía"],
+      "Desarrollamos ideas, estructuras y piezas de contenido pensadas para redes. Diseñamos, grabamos y editamos, adaptando cada pieza a la identidad de la marca.",
+    tags: ["Diseño", "Grabación", "Edición", "Identidad"],
   },
 ];
 

@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-dark py-12 px-6">
+    <footer className="bg-gradient-to-br from-[#1a1535] via-[#1e1a2e] to-[#0F0F0F] py-12 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Fila principal */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
