@@ -44,7 +44,7 @@ export default function Navbar() {
           onClick={() => scrollTo("hero")}
           className="hover:opacity-70 transition-opacity"
         >
-          <Logo height={28} color="#0F0F0F" />
+          <Logo height={28} variant="dark" />
         </button>
 
         {/* Desktop Nav */}
@@ -70,7 +70,7 @@ export default function Navbar() {
         <button
           className="md:hidden text-dark"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Abrir menú"
+          aria-label="Abrir menÃº"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

@@ -18,7 +18,7 @@ export default function Footer() {
             onClick={() => scrollTo("hero")}
             className="hover:opacity-70 transition-opacity"
           >
-            <Logo height={30} color="#FFFFFF" />
+            <Logo height={30} variant="white" />
           </button>
 
           {/* Nav links */}
@@ -63,7 +63,7 @@ export default function Footer() {
         {/* Divider + copyright */}
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-white/25 text-xs">
-            © {new Date().getFullYear()} IMHO. Todos los derechos reservados.
+            Â© {new Date().getFullYear()} IMHO. Todos los derechos reservados.
           </p>
           <p className="text-white/15 text-xs">Hecho con amor en Buenos Aires</p>
         </div>
