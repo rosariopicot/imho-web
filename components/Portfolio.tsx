@@ -74,10 +74,33 @@ const brands = [
   },
 ];
 
-const brandMedia: Record<string, { type: "image" | "video"; src?: string; placeholder?: string }[]> = {
+type BrandMediaItem = {
+  type: "image" | "video";
+  src?: string;
+  placeholder?: string;
+};
+
+function getCloudinaryVideoUrl(src: string) {
+  if (!src.includes("/video/upload/")) {
+    return src;
+  }
+
+  const optimized = src.replace(
+    "/video/upload/",
+    "/video/upload/f_auto:video,q_auto,vc_auto/"
+  );
+
+  return optimized.replace(/\.(mov|mp4)$/i, ".mp4");
+}
+
+const brandMedia: Record<string, BrandMediaItem[]> = {
   ZANNAS: [
     { type: "image", src: "/media/zannas/zannas_1.webp" },
     { type: "image", src: "/media/zannas/zannas_2.webp" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276684/copy_9F7C6695-BAE9-4B3E-AA8B-27D325D69636_h5a9ie.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276690/Zannas_encuesta_Tipografia_d5jvcd.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276690/Zanna_s_CABA_j5veog.mp4" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276687/copy_B8C38686-594D-4149-A151-9628127341E0_njnk9z.mov" },
   ],
   DOU: [
     { type: "image", placeholder: "Próximamente contenido de DOU" },
@@ -87,18 +110,28 @@ const brandMedia: Record<string, { type: "image" | "video"; src?: string; placeh
     { type: "image", src: "/media/hilo/hilo_2.webp" },
     { type: "image", src: "/media/hilo/hilo_3.webp" },
     { type: "image", src: "/media/hilo/hilo_4.webp" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276485/Coming_soon_HILO_y3kd90.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276489/Prueba_5_hilo_subtitulado_puomyc.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276486/Hilo_Respaldos_tdjg4x.mov" },
   ],
   UNUM: [
     { type: "image", src: "/media/unum/unum_1.webp" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276628/UNUM_Rutina_completa_subt_sin_musica_o3zmpn.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276628/UNUM_Lifestyle_3_subt_tahgcq.mov" },
   ],
   "UNIQUE GET AWAY": [
-    { type: "image", placeholder: "Próximamente contenido de UNIQUE GET AWAY" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774277054/copy_32533649-0A9C-4177-BED4-61FED411A5F5_fvgexh.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276759/Pantanal_sin_vibora_ihzhij.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276751/copy_9CF67528-DD0D-4A9C-94A0-5F1C47CD2BAD_m8h1u4.mov" },
   ],
   BABYSHADOW: [
     { type: "image", src: "/media/babyshadow/babyshadow_1.webp" },
     { type: "image", src: "/media/babyshadow/babyshadow_2.webp" },
     { type: "image", src: "/media/babyshadow/babyshadow_3.webp" },
     { type: "image", src: "/media/babyshadow/babyshadow_4.webp" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276579/Baby_Shadow_wet_bag_nuevo_whicvf.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276581/Babyshadow_cortina_subt_G_tvs59v.mov" },
+    { type: "video", src: "https://res.cloudinary.com/duhd6ldzm/video/upload/v1774276579/Babyshadow_auto_sin_voz_uu18ot.mov" },
   ],
 };
 
@@ -107,15 +140,11 @@ export default function Portfolio() {
   const selected = brands.find((b) => b.name === selectedBrand);
   const media = selectedBrand ? brandMedia[selectedBrand] || [] : [];
 
-  // Close modal on ESC key
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedBrand(null);
-      }
-    },
-    []
-  );
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setSelectedBrand(null);
+    }
+  }, []);
 
   useEffect(() => {
     if (selectedBrand) {
@@ -124,6 +153,7 @@ export default function Portfolio() {
     } else {
       document.body.style.overflow = "";
     }
+
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
@@ -136,7 +166,6 @@ export default function Portfolio() {
       className="py-24 lg:py-32 bg-cream relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="flex items-end justify-between mb-14">
           <div>
             <motion.p
@@ -170,9 +199,8 @@ export default function Portfolio() {
           </motion.span>
         </div>
 
-        {/* Grid de marcas */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-5 auto-rows-auto">
-          {brands.map((brand, index) => (
+          {brands.map((brand) => (
             <motion.div
               key={brand.name}
               initial={{ opacity: 0, scale: 0.96 }}
@@ -192,7 +220,6 @@ export default function Portfolio() {
                 className="p-4 md:p-6 lg:p-7 h-full flex flex-col justify-between relative"
                 style={{ minHeight: "inherit" }}
               >
-                {/* Nombre ghost de fondo */}
                 <span
                   className={`font-syne font-black ${brand.ghostSize} leading-none opacity-[0.06] absolute -top-2 -left-1 select-none pointer-events-none`}
                   style={{ color: brand.text }}
@@ -200,7 +227,6 @@ export default function Portfolio() {
                   {brand.name.split(" ")[0]}
                 </span>
 
-                {/* Indicador de clickeable */}
                 <div className="flex justify-end relative z-10">
                   <motion.div
                     className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -212,7 +238,6 @@ export default function Portfolio() {
                   </motion.div>
                 </div>
 
-                {/* Footer de card */}
                 <div className="relative z-10">
                   <p
                     className="text-[10px] md:text-[11px] font-medium mb-1 opacity-50 leading-snug"
@@ -225,18 +250,19 @@ export default function Portfolio() {
                     style={{ color: brand.text }}
                   >
                     {"displayName" in brand
-                      ? (brand as { displayName: string }).displayName.split("\n").map((line, i) => (
-                          <span key={i}>
-                            {line}
-                            {i === 0 && <br />}
-                          </span>
-                        ))
+                      ? (brand as { displayName: string }).displayName
+                          .split("\n")
+                          .map((line, i) => (
+                            <span key={i}>
+                              {line}
+                              {i === 0 && <br />}
+                            </span>
+                          ))
                       : brand.name}
                   </h3>
                 </div>
               </div>
 
-              {/* Overlay hover */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
@@ -247,7 +273,6 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Nota al pie */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -262,7 +287,6 @@ export default function Portfolio() {
         </motion.p>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedBrand && selected && (
           <motion.div
@@ -273,10 +297,8 @@ export default function Portfolio() {
             className="fixed inset-0 z-[60] flex items-center justify-center px-4"
             onClick={() => setSelectedBrand(null)}
           >
-            {/* Backdrop */}
             <div className="absolute inset-0 bg-dark/70 backdrop-blur-sm" />
 
-            {/* Panel del modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -285,7 +307,6 @@ export default function Portfolio() {
               onClick={(e) => e.stopPropagation()}
               className="relative bg-cream rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
             >
-              {/* Header del modal */}
               <div
                 className="p-6 md:p-8 rounded-t-3xl relative"
                 style={{ backgroundColor: selected.bg }}
@@ -318,43 +339,58 @@ export default function Portfolio() {
                 </h3>
               </div>
 
-              {/* Contenido del modal — galería */}
               <div className="p-6 md:p-8">
                 {media.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-3 md:gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                     {media.map((item, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.08, duration: 0.4 }}
-                      className="rounded-2xl overflow-hidden"
-                    >
-                      {item.src ? (
-                        <img
-                          src={item.src}
-                          alt={selectedBrand + " - " + (idx + 1)}
-                          className="w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="bg-dark/5 rounded-2xl aspect-square flex flex-col items-center justify-center gap-3 text-dark/30">
-                          {item.type === "video" ? (
-                            <PlayCircle size={36} strokeWidth={1.2} />
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.08, duration: 0.4 }}
+                        className="rounded-2xl overflow-hidden"
+                      >
+                        {item.src ? (
+                          item.type === "video" ? (
+                            <video
+                              src={getCloudinaryVideoUrl(item.src)}
+                              controls
+                              playsInline
+                              preload="metadata"
+                              className="w-full h-auto rounded-2xl bg-black"
+                            >
+                              Tu navegador no soporta la reproducción de video HTML5.
+                            </video>
                           ) : (
-                            <ImageIcon size={36} strokeWidth={1.2} />
-                          )}
-                          <span className="text-xs text-center px-4">
-                            {item.placeholder}
-                          </span>
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
+                            <img
+                              src={item.src}
+                              alt={selectedBrand + " - " + (idx + 1)}
+                              className="w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          )
+                        ) : (
+                          <div className="bg-dark/5 rounded-2xl aspect-square flex flex-col items-center justify-center gap-3 text-dark/30">
+                            {item.type === "video" ? (
+                              <PlayCircle size={36} strokeWidth={1.2} />
+                            ) : (
+                              <ImageIcon size={36} strokeWidth={1.2} />
+                            )}
+                            <span className="text-xs text-center px-4">
+                              {item.placeholder}
+                            </span>
+                          </div>
+                        )}
+                      </motion.div>
+                    ))}
                   </div>
                 ) : (
                   <div className="text-center py-12 text-dark/35">
-                    <ImageIcon size={48} strokeWidth={1} className="mx-auto mb-4 opacity-40" />
+                    <ImageIcon
+                      size={48}
+                      strokeWidth={1}
+                      className="mx-auto mb-4 opacity-40"
+                    />
                     <p className="text-sm">
                       Próximamente fotos y videos de este proyecto
                     </p>
