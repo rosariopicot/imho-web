@@ -74,25 +74,31 @@ const brands = [
   },
 ];
 
-// Placeholder media — será reemplazado con contenido real de Google Drive
-const brandMedia: Record<string, { type: "image" | "video"; placeholder: string }[]> = {
+const brandMedia: Record<string, { type: "image" | "video"; src?: string; placeholder?: string }[]> = {
   ZANNAS: [
-    { type: "image", placeholder: "Próximamente fotos y videos de ZANNAS" },
+    { type: "image", src: "/media/zannas/zannas_1.webp" },
+    { type: "image", src: "/media/zannas/zannas_2.webp" },
   ],
   DOU: [
-    { type: "image", placeholder: "Próximamente fotos y videos de DOU" },
+    { type: "image", placeholder: "Próximamente contenido de DOU" },
   ],
   HILO: [
-    { type: "image", placeholder: "Próximamente fotos y videos de HILO" },
+    { type: "image", src: "/media/hilo/hilo_1.webp" },
+    { type: "image", src: "/media/hilo/hilo_2.webp" },
+    { type: "image", src: "/media/hilo/hilo_3.webp" },
+    { type: "image", src: "/media/hilo/hilo_4.webp" },
   ],
   UNUM: [
-    { type: "image", placeholder: "Próximamente fotos y videos de UNUM" },
+    { type: "image", src: "/media/unum/unum_1.webp" },
   ],
   "UNIQUE GET AWAY": [
-    { type: "image", placeholder: "Próximamente fotos y videos de UNIQUE GET AWAY" },
+    { type: "image", placeholder: "Próximamente contenido de UNIQUE GET AWAY" },
   ],
   BABYSHADOW: [
-    { type: "image", placeholder: "Próximamente fotos y videos de BABYSHADOW" },
+    { type: "image", src: "/media/babyshadow/babyshadow_1.webp" },
+    { type: "image", src: "/media/babyshadow/babyshadow_2.webp" },
+    { type: "image", src: "/media/babyshadow/babyshadow_3.webp" },
+    { type: "image", src: "/media/babyshadow/babyshadow_4.webp" },
   ],
 };
 
@@ -317,23 +323,34 @@ export default function Portfolio() {
                 {media.length > 0 ? (
                   <div className="grid grid-cols-2 gap-3 md:gap-4">
                     {media.map((item, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.08, duration: 0.4 }}
-                        className="bg-dark/5 rounded-2xl aspect-square flex flex-col items-center justify-center gap-3 text-dark/30"
-                      >
-                        {item.type === "video" ? (
-                          <PlayCircle size={36} strokeWidth={1.2} />
-                        ) : (
-                          <ImageIcon size={36} strokeWidth={1.2} />
-                        )}
-                        <span className="text-xs text-center px-4">
-                          {item.placeholder}
-                        </span>
-                      </motion.div>
-                    ))}
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.08, duration: 0.4 }}
+                      className="rounded-2xl overflow-hidden"
+                    >
+                      {item.src ? (
+                        <img
+                          src={item.src}
+                          alt={selectedBrand + " - " + (idx + 1)}
+                          className="w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="bg-dark/5 rounded-2xl aspect-square flex flex-col items-center justify-center gap-3 text-dark/30">
+                          {item.type === "video" ? (
+                            <PlayCircle size={36} strokeWidth={1.2} />
+                          ) : (
+                            <ImageIcon size={36} strokeWidth={1.2} />
+                          )}
+                          <span className="text-xs text-center px-4">
+                            {item.placeholder}
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
                   </div>
                 ) : (
                   <div className="text-center py-12 text-dark/35">
