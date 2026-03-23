@@ -17,7 +17,7 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="py-28 lg:py-36 bg-beige relative overflow-hidden"
+      className="py-20 sm:py-28 lg:py-36 bg-beige relative overflow-hidden"
     >
       {/* IMHO ghost text de fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
@@ -43,7 +43,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8"
         >
           {/* Icono decorativo */}
           <motion.span
@@ -55,7 +55,7 @@ export default function Contact() {
           </motion.span>
 
           {/* Headline */}
-          <h2 className="font-syne font-black text-5xl lg:text-7xl text-dark leading-[0.92] tracking-tight">
+          <h2 className="font-syne font-black text-4xl sm:text-5xl lg:text-7xl text-dark leading-[0.92] tracking-tight">
             ¿Tenés un
             <br />
             <span className="text-terracotta italic">proyecto</span>
@@ -64,19 +64,19 @@ export default function Contact() {
           </h2>
 
           {/* Subtítulo */}
-          <p className="text-dark/55 text-lg leading-relaxed max-w-md mx-auto">
+          <p className="text-dark/55 text-base sm:text-lg leading-relaxed max-w-md mx-auto">
             Contactate con nosotras para consultar tarifas de creación de contenido, edición y/o presupuestar planes de Community Management.
           </p>
 
           {/* CTAs principales */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
             <motion.a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-3 bg-dark text-cream px-8 py-4 rounded-full text-base font-medium transition-colors hover:bg-dark/85 w-full sm:w-auto justify-center"
+              className="flex items-center gap-3 bg-dark text-cream px-6 sm:px-8 py-4 rounded-full text-sm sm:text-base font-medium transition-colors hover:bg-dark/85 w-full sm:w-auto justify-center"
             >
               <MessageCircle size={20} fill="currentColor" strokeWidth={0} />
               Escribinos por WhatsApp
@@ -88,7 +88,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-3 border-2 border-dark text-dark px-8 py-4 rounded-full text-base font-medium hover:bg-dark hover:text-cream transition-colors w-full sm:w-auto justify-center"
+              className="flex items-center gap-3 border-2 border-dark text-dark px-6 sm:px-8 py-4 rounded-full text-sm sm:text-base font-medium hover:bg-dark hover:text-cream transition-colors w-full sm:w-auto justify-center"
             >
               <Instagram size={20} />
               @imho.creators
@@ -98,7 +98,7 @@ export default function Contact() {
           {/* Email */}
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex items-center gap-2 text-dark/40 text-sm hover:text-dark transition-colors"
+            className="inline-flex items-center gap-2 text-dark/40 text-xs sm:text-sm hover:text-dark transition-colors break-all"
           >
             <Mail size={14} />
             {EMAIL}

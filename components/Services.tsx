@@ -37,7 +37,7 @@ export default function Services() {
   return (
     <section
       id="servicios"
-      className="py-24 lg:py-32 bg-cream relative overflow-hidden"
+      className="py-20 sm:py-24 lg:py-32 bg-cream relative overflow-hidden"
     >
       {/* Blob decorativo */}
       <div
@@ -52,7 +52,7 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="flex items-end justify-between mb-16">
+        <div className="flex items-end justify-between mb-12 sm:mb-16">
           <div>
             <motion.div
               initial={{ opacity: 0, rotate: -45 }}
@@ -86,7 +86,7 @@ export default function Services() {
         </div>
 
         {/* Grid de servicios */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -102,7 +102,7 @@ export default function Services() {
                 y: -6,
                 transition: { duration: 0.25 },
               }}
-              className={`group ${cardGradients[index]} rounded-3xl p-7 flex flex-col justify-between min-h-[320px] relative overflow-hidden border border-dark/8`}
+              className={`group ${cardGradients[index]} rounded-2xl md:rounded-3xl p-6 md:p-7 flex flex-col justify-between min-h-[280px] md:min-h-[320px] relative overflow-hidden border border-dark/8`}
             >
               {/* Glow sutil en hover */}
               <div
@@ -115,10 +115,10 @@ export default function Services() {
 
               <div className="relative z-10">
                 {/* Icono */}
-                <div className="text-terracotta mb-6">{service.icon}</div>
+                <div className="text-terracotta mb-5 md:mb-6">{service.icon}</div>
 
                 {/* Título */}
-                <h3 className="font-syne font-bold text-xl text-dark mb-3 leading-tight">
+                <h3 className="font-syne font-bold text-lg md:text-xl text-dark mb-3 leading-tight">
                   {service.title}
                 </h3>
 
@@ -129,7 +129,7 @@ export default function Services() {
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-6 relative z-10">
+              <div className="flex flex-wrap gap-2 mt-5 md:mt-6 relative z-10">
                 {service.tags.map((tag) => (
                   <span
                     key={tag}

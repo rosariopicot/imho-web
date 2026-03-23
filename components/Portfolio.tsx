@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, X, ImageIcon, PlayCircle, Sparkles } from "lucide-react";
 
 const brands = [
   {
     name: "ZANNAS",
-    service: "Estrategia + Community Management",
+    service: "Creación de contenido",
     bg: "#C4673A",
     text: "#FFFFFF",
     span: "col-span-1 md:col-span-1",
@@ -18,7 +18,7 @@ const brands = [
   },
   {
     name: "DOU",
-    service: "Community Management + Contenido",
+    service: "Community management y Edición de video",
     bg: "#B8C3D9",
     text: "#0F0F0F",
     span: "col-span-2 md:col-span-2",
@@ -29,7 +29,7 @@ const brands = [
   },
   {
     name: "HILO",
-    service: "Diseño de Piezas Gráficas",
+    service: "Community management y Creación de contenido",
     bg: "#F2DDD0",
     text: "#0F0F0F",
     span: "col-span-1",
@@ -40,7 +40,7 @@ const brands = [
   },
   {
     name: "UNUM",
-    service: "Creación de Contenido",
+    service: "Creación de contenido",
     bg: "#C8F04D",
     text: "#0F0F0F",
     span: "col-span-1",
@@ -52,7 +52,7 @@ const brands = [
   {
     name: "UNIQUE GET AWAY",
     displayName: "UNIQUE\nGET AWAY",
-    service: "Reels + Edición de Contenido",
+    service: "Community management y Edición de video",
     bg: "#0F0F0F",
     text: "#FFFFFF",
     span: "col-span-1",
@@ -63,7 +63,7 @@ const brands = [
   },
   {
     name: "BABYSHADOW",
-    service: "Contenido + Diseño Gráfico",
+    service: "Creación de contenido",
     bg: "#1a1a2e",
     text: "#FFFFFF",
     span: "col-span-2 md:col-span-2",
@@ -100,6 +100,29 @@ export default function Portfolio() {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const selected = brands.find((b) => b.name === selectedBrand);
   const media = selectedBrand ? brandMedia[selectedBrand] || [] : [];
+
+  // Close modal on ESC key
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedBrand(null);
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (selectedBrand) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedBrand, handleKeyDown]);
 
   return (
     <section
@@ -142,7 +165,7 @@ export default function Portfolio() {
         </div>
 
         {/* Grid de marcas */}
-        <div className="grid grid-cols-3 gap-4 lg:gap-5 auto-rows-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-5 auto-rows-auto">
           {brands.map((brand, index) => (
             <motion.div
               key={brand.name}
@@ -156,11 +179,11 @@ export default function Portfolio() {
                 transition: { duration: 0.25, ease: "easeOut" },
               }}
               onClick={() => setSelectedBrand(brand.name)}
-              className={`${brand.span} rounded-3xl overflow-hidden relative cursor-pointer group ${brand.height}`}
+              className={`${brand.span} rounded-2xl md:rounded-3xl overflow-hidden relative cursor-pointer group ${brand.height}`}
               style={{ backgroundColor: brand.bg }}
             >
               <div
-                className="p-6 md:p-7 h-full flex flex-col justify-between relative"
+                className="p-4 md:p-6 lg:p-7 h-full flex flex-col justify-between relative"
                 style={{ minHeight: "inherit" }}
               >
                 {/* Nombre ghost de fondo */}
@@ -174,7 +197,7 @@ export default function Portfolio() {
                 {/* Indicador de clickeable */}
                 <div className="flex justify-end relative z-10">
                   <motion.div
-                    className="w-9 h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ backgroundColor: `${brand.text}20` }}
                     whileHover={{ scale: 1.15, rotate: 45 }}
                     transition={{ duration: 0.2 }}
@@ -186,7 +209,7 @@ export default function Portfolio() {
                 {/* Footer de card */}
                 <div className="relative z-10">
                   <p
-                    className="text-[11px] font-medium mb-1 opacity-50"
+                    className="text-[10px] md:text-[11px] font-medium mb-1 opacity-50 leading-snug"
                     style={{ color: brand.text }}
                   >
                     {brand.service}
@@ -258,27 +281,31 @@ export default function Portfolio() {
             >
               {/* Header del modal */}
               <div
-                className="p-8 rounded-t-3xl relative"
+                className="p-6 md:p-8 rounded-t-3xl relative"
                 style={{ backgroundColor: selected.bg }}
               >
                 <button
-                  onClick={() => setSelectedBrand(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedBrand(null);
+                  }}
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 z-20 cursor-pointer"
                   style={{
                     backgroundColor: `${selected.text}20`,
                     color: selected.text,
                   }}
+                  aria-label="Cerrar modal"
                 >
                   <X size={20} />
                 </button>
                 <p
-                  className="text-xs font-medium uppercase tracking-[0.15em] opacity-60 mb-2"
+                  className="text-xs font-medium uppercase tracking-[0.15em] opacity-60 mb-2 pr-12"
                   style={{ color: selected.text }}
                 >
                   {selected.service}
                 </p>
                 <h3
-                  className="font-syne font-black text-4xl"
+                  className="font-syne font-black text-3xl md:text-4xl"
                   style={{ color: selected.text }}
                 >
                   {selected.name}
@@ -286,9 +313,9 @@ export default function Portfolio() {
               </div>
 
               {/* Contenido del modal — galería */}
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 {media.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 md:gap-4">
                     {media.map((item, idx) => (
                       <motion.div
                         key={idx}

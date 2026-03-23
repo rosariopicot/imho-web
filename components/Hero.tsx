@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen bg-cream pt-28 pb-16 flex items-center relative overflow-hidden"
+      className="min-h-screen bg-cream pt-24 sm:pt-28 pb-16 flex items-center relative overflow-hidden"
     >
       {/* Blob decorativo de fondo */}
       <div
@@ -70,11 +70,11 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             {/* Badge */}
             <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-dark/55 border border-dark/20 rounded-full px-4 py-1.5">
+              <span className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-dark/55 border border-dark/20 rounded-full px-3 sm:px-4 py-1.5">
                 <span className="w-2 h-2 bg-lime rounded-full animate-pulse" />
                 Agencia Creativa de Marketing Digital
               </span>
@@ -83,7 +83,7 @@ export default function Hero() {
             {/* Headline principal */}
             <motion.h1
               variants={itemVariants}
-              className="font-syne font-black text-[3.2rem] lg:text-[4.5rem] xl:text-[5rem] leading-[0.92] tracking-tight text-dark"
+              className="font-syne font-black text-[2.5rem] sm:text-[3.2rem] lg:text-[4.5rem] xl:text-[5rem] leading-[0.92] tracking-tight text-dark"
             >
               Contenido
               <br />
@@ -98,22 +98,22 @@ export default function Hero() {
             {/* Subtítulo */}
             <motion.p
               variants={itemVariants}
-              className="text-dark/55 text-lg leading-relaxed max-w-md"
+              className="text-dark/55 text-base sm:text-lg leading-relaxed max-w-md"
             >
               En IMHO ayudamos a marcas a tener una presencia real en redes. No creemos en publicar por publicar. Cada contenido tiene un objetivo: atraer, conectar y crear comunidad.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() => scrollTo("portfolio")}
-                className="bg-dark text-cream px-7 py-3.5 rounded-full font-medium text-sm hover:bg-dark/85 transition-all active:scale-95"
+                className="bg-dark text-cream px-7 py-3.5 rounded-full font-medium text-sm hover:bg-dark/85 transition-all active:scale-95 w-full sm:w-auto"
               >
                 Ver nuestros trabajos
               </button>
               <button
                 onClick={() => scrollTo("contacto")}
-                className="flex items-center gap-2 text-dark px-7 py-3.5 rounded-full font-medium text-sm border border-dark/25 hover:border-dark hover:bg-dark/5 transition-all active:scale-95"
+                className="flex items-center justify-center gap-2 text-dark px-7 py-3.5 rounded-full font-medium text-sm border border-dark/25 hover:border-dark hover:bg-dark/5 transition-all active:scale-95 w-full sm:w-auto"
               >
                 Hablemos
                 <ArrowRight size={15} />
