@@ -93,6 +93,19 @@ function getCloudinaryVideoUrl(src: string) {
   return optimized.replace(/\.(mov|mp4)$/i, ".mp4");
 }
 
+function getCloudinaryVideoPosterUrl(src: string) {
+  if (!src.includes("/video/upload/")) {
+    return "";
+  }
+
+  const poster = src.replace(
+    "/video/upload/",
+    "/video/upload/so_0,f_auto,q_auto,w_1200/"
+  );
+
+  return poster.replace(/\.(mov|mp4)$/i, ".jpg");
+}
+
 const brandMedia: Record<string, BrandMediaItem[]> = {
   ZANNAS: [
     { type: "image", src: "/media/zannas/zannas_1.webp" },
@@ -354,6 +367,7 @@ export default function Portfolio() {
                           item.type === "video" ? (
                             <video
                               src={getCloudinaryVideoUrl(item.src)}
+                              poster={getCloudinaryVideoPosterUrl(item.src)}
                               controls
                               playsInline
                               preload="metadata"
