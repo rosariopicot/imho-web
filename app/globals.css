@@ -64,3 +64,15 @@ p {
     radial-gradient(ellipse at 60% 85%, rgba(232,168,124,0.15) 0%, transparent 45%),
     #f5f2ed;
 }
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 0%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 20s ease infinite;
+}

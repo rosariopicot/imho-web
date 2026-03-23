@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Target, Film, PenTool } from "lucide-react";
 
 const cardGradients = [
-    "bg-gradient-to-br from-[#dbd5f0] via-[#e8dff5] to-[#f0e8f8]",
-    "bg-gradient-to-br from-[#f5e0d0] via-[#fae8da] to-[#fdf0e6]",
-    "bg-gradient-to-br from-[#ddf0c8] via-[#e8f5d8] to-[#f0f8e4]",
+    "animate-gradient-shift bg-[length:200%_200%] bg-gradient-to-br from-[#dbd5f0] via-[#e8dff5] to-[#f0e8f8]",
+    "animate-gradient-shift bg-[length:200%_200%] bg-gradient-to-br from-[#f5e0d0] via-[#fae8da] to-[#fdf0e6]",
+    "animate-gradient-shift bg-[length:200%_200%] bg-gradient-to-br from-[#ddf0c8] via-[#e8f5d8] to-[#f0f8e4]",
   ];
 
 const services = [
